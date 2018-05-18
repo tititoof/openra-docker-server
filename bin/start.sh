@@ -2,7 +2,6 @@
 # see https://github.com/OpenRA/OpenRA/wiki/Dedicated
 Name="${Name:-""}"
 Mod="${Mod:-""}"
-LockBots=${LOCK_BOTS:-""}
 Ban=${BAN:-""}
 ListenPort="${ListenPort:-"1234"}"
 ExternalPort="${ExternalPort:-"1234"}"
@@ -24,7 +23,7 @@ echo "BAN:              $Ban"
 echo "MAP:              $Map"
 echo "NAME:             $Name"
 echo "PASSWORD:         $Password"
-echo "LOCK_BOTS:        $LockBots"
+echo "SINGLE_PLAYER:    $EnableSingleplayers"
 echo "EXTERNAL_PORT:    $ExternalPort"
 echo "ADVERTISE_ONLINE: $AdvertiseOnline"
 echo "MAX_GAME_DURATION_MILLISECONDS: $MaxGameDurationMilliseconds"
@@ -33,7 +32,6 @@ echo "=================================================================="
 while true; do
      mono --debug /usr/lib/openra/OpenRA.Server.exe Game.Mod=$Mod \
      Server.Name="$Name" Server.ListenPort=$ListenPort Server.ExternalPort=$ExternalPort \
-     Server.LockBots=$LockBots \
      Server.Ban="$Ban" \
      Server.TimeOut="$MaxGameDurationMilliseconds" \
      Server.AdvertiseOnline=$AdvertiseOnline \
