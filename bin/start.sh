@@ -1,13 +1,13 @@
 #!/bin/sh
 # see https://github.com/OpenRA/OpenRA/wiki/Dedicated
-Name="${Name:-"Dedicated Server"}"
-Mod="${Mod:-"d2k"}"
-LockBots=${LOCK_BOTS:-"False"}
+Name="${Name:-""}"
+Mod="${Mod:-""}"
+LockBots=${LOCK_BOTS:-""}
 Ban=${BAN:-""}
 ListenPort="${ListenPort:-"1234"}"
 ExternalPort="${ExternalPort:-"1234"}"
-AdvertiseOnline="${AdvertiseOnline:-"True"}"
-EnableSingleplayer="${EnableSingleplayer:-"True"}"
+AdvertiseOnline="${AdvertiseOnline:-""}"
+EnableSingleplayer="${EnableSingleplayer:-""}"
 Map="${MAP}"
 Password="${Password:-""}"
 MaxGameDurationMilliseconds="${MAX_GAME_DURATION_MILLISECONDS:-"7200000"}" # 2h x 60min x 60s x 1000
