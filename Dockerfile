@@ -45,4 +45,5 @@ EXPOSE 1234
 VOLUME ["/home/openra", "/usr/lib/openra", "/home/openra/.openra/Logs", "/home/openra/.openra/maps"]
 USER openra
 
+WORKDIR /usr/lib/openra
 CMD ["/home/openra/start.sh"]
