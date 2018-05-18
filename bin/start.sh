@@ -1,18 +1,15 @@
-#!/bin/bash
-
+#!/bin/sh
 # see https://github.com/OpenRA/OpenRA/wiki/Dedicated
-#
-Name="${NAME:-"Dedicated-Server"}"
-Mod=${MOD:-"ra"}
+Name="${Name:-"Dedicated Server"}"
+Mod="${Mod:-"d2k"}"
 LockBots=${LOCK_BOTS:-"False"}
 Ban=${BAN:-""}
-Dedicated="True"
-DedicatedLoop="True" # A new instance is spawned once previous game is finished
-ListenPort=1234
-ExternalPort="${EXTERNAL_PORT:-"1234"}"
-AdvertiseOnline=${ADVERTISE_ONLINE:-"False"}
+ListenPort="${ListenPort:-"1234"}"
+ExternalPort="${ExternalPort:-"1234"}"
+AdvertiseOnline="${AdvertiseOnline:-"True"}"
+EnableSingleplayer="${EnableSingleplayer:-"True"}"
 Map="${MAP}"
-Password="${PASSWORD}"
+Password="${Password:-""}"
 MaxGameDurationMilliseconds="${MAX_GAME_DURATION_MILLISECONDS:-"7200000"}" # 2h x 60min x 60s x 1000
 
 MOTD="${MOTD:-"welcome to a Docker based OpenRA server"}"
@@ -33,11 +30,13 @@ echo "ADVERTISE_ONLINE: $AdvertiseOnline"
 echo "MAX_GAME_DURATION_MILLISECONDS: $MaxGameDurationMilliseconds"
 echo "=================================================================="
 
-mono --debug /usr/lib/openra/OpenRA.Game.exe Game.Mod=$Mod Server.Dedicated=$Dedicated Server.DedicatedLoop=$DedicatedLoop \
-Server.Name="$Name" Server.ListenPort=$ListenPort Server.ExternalPort=$ExternalPort \
-Server.LockBots=$LockBots \
-Server.Ban="$Ban" \
-Server.TimeOut="$MaxGameDurationMilliseconds" \
-Server.AdvertiseOnline=$AdvertiseOnline \
-Server.Map=$Map \
-Server.Password=$Password
+while true; do
+     mono --debug /usr/lib/openra/OpenRA.Server.exe Game.Mod=$Mod \
+     Server.Name="$Name" Server.ListenPort=$ListenPort Server.ExternalPort=$ExternalPort \
+     Server.LockBots=$LockBots \
+     Server.Ban="$Ban" \
+     Server.TimeOut="$MaxGameDurationMilliseconds" \
+     Server.AdvertiseOnline=$AdvertiseOnline \
+     Server.Map=$Map \
+     Server.EnableSingleplayer=$EnableSingleplayer Server.Password=$Password
+done
