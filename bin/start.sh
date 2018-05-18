@@ -16,7 +16,7 @@ MOTD="${MOTD:-"welcome to a Docker based OpenRA server"}"
 echo $MOTD > /home/openra/.openra/motd.txt
 
 # if no maps volume is mounted, sync the latest maps from the community rsync service
-[ "$(ls -A /home/openra/.openra/maps/)" ] && echo "will use existing maps" || rsync --delete -ap rsync://resource.openra.net/maps/ /home/<username>/.openra/maps/
+# [ "$(ls -A /home/openra/.openra/maps/)" ] && echo "will use existing maps" || rsync --delete -ap rsync://resource.openra.net/maps/ /home/<username>/.openra/maps/
 
 echo "=================================================================="
 echo "MOD:              $Mod"
