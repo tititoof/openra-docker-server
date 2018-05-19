@@ -1,17 +1,17 @@
 #!/bin/sh
 # see https://github.com/OpenRA/OpenRA/wiki/Dedicated
-Name="${Name:-""}"
-Mod="${Mod:-""}"
+Name="${Name:-"DEDICATED SERVER"}"
+Mod="${Mod:-"ra"}"
 Ban=${BAN:-""}
 ListenPort="${ListenPort:-"1234"}"
 ExternalPort="${ExternalPort:-"1234"}"
-AdvertiseOnline="${AdvertiseOnline:-""}"
-EnableSingleplayer="${EnableSingleplayer:-""}"
+AdvertiseOnline="${AdvertiseOnline:-"True"}"
+EnableSingleplayer="${EnableSingleplayer:-"True"}"
 Map="${MAP}"
 Password="${Password:-""}"
 MaxGameDurationMilliseconds="${MAX_GAME_DURATION_MILLISECONDS:-"7200000"}" # 2h x 60min x 60s x 1000
 
-MOTD="${MOTD:-"welcome to a Docker based OpenRA server"}"
+MOTD="${MOTD:-"Have Fun!!"}"
 echo $MOTD > /home/openra/.openra/motd.txt
 
 # if no maps volume is mounted, sync the latest maps from the community rsync service
@@ -23,7 +23,7 @@ echo "BAN:              $Ban"
 echo "MAP:              $Map"
 echo "NAME:             $Name"
 echo "PASSWORD:         $Password"
-echo "SINGLE_PLAYER:    $EnableSingleplayers"
+echo "SINGLE_PLAYER:    $EnableSingleplayer"
 echo "EXTERNAL_PORT:    $ExternalPort"
 echo "ADVERTISE_ONLINE: $AdvertiseOnline"
 echo "MAX_GAME_DURATION_MILLISECONDS: $MaxGameDurationMilliseconds"
