@@ -1,33 +1,40 @@
 # Dockerfile for OpenRA dedicated server
 
-## Example
+## unRAID template
+
+The template for this docker can be found at [https://raw.githubusercontent.com/Mudislander/docker-templates/master/openra.xml Mudislander/docker-templates]
+
+## Example unRAID command
 ```sh
 
-$ docker run -d -p 1234:1234 \
-             -e Name="DOCKER SERVER" \
-             -e Mod=ra \
-             -e ListenPort="1234" \
-             -e ExternalPort="1234" \
-             --name openra \
-             mudislander/openra-docker-server
+$ docker run -d --name='OpenRA' \
+                --net='bridge' \
+				 -e TZ="Europe/London" \
+				 -e HOST_OS="unRAID" \
+				 -e 'Mod'='d2k' \
+				 -e 'Name'='Mudisle D2K Server' \
+				 -e 'Ban'='' \
+				 -e 'MOTD'='Welcome to Mudisle d2k Server. Have Fun!!' \
+				 -e 'Password'='' \
+				 -e 'MAP'='8dd8ad23ab49cf73cc2d52507ed684ab51e129c5' \
+				 -e 'AdvertiseOnline'='True' \
+				 -e 'EnableSingleplayer'='True' \
+				 -p '1234:1234/tcp' 'mudislander/openra-docker-server'
 
 ```
+
 ## Settings
 
 | ENV  | EXAMPLE VALUE   | DESCRIPTION  | DEFAULT  |   |
 |---|---|---|---|---|
-| NAME  | Silo and Wall Rush  |  Server name  |   |   |
-| MOTD  | Have fun | MOTD, on server join   |   |   |
-| LOCK_BOTS  | True  |  Disable bots  |  False |   |
+| NAME  | Mudisle D2K Server  |  Server name  |   |   |
+| MOTD  | Welcome to Mudisle d2k Server. Have Fun!! | MOTD, on server join   |   |   |
 | EXTERNAL_PORT  | 1234  |  External port, used for server list registration  |  1234 |   |
 | ADVERTISE_ONLINE  | True  | Register with public  server list |  False |   |
-| MOD  | ra  |  OpenRA Mod "Red Alert"  | ra |   |
-| MAP  | a967ccc7fc250d89d6945d63ca9ee5e0f539eeb7 | Load initial map with id, see [Resource Center][1]  |  |   |
+| MOD  | d2k  |  OpenRA Mod "Dune 2000"  | ra |   |
+| MAP  | 8dd8ad23ab49cf73cc2d52507ed684ab51e129c5 | Load initial map with id, see [Resource Center][1]  |  |   |
 | PASSWORD  | whatever | Password to connect |  |   |
 
-
-Various options can be set by using environment variables, see:
-https://github.com/rmoriz/openra-dockerfile/blob/master/bin/start.sh
 
 [1]: http://resource.openra.net/maps/110
 
@@ -36,5 +43,7 @@ https://github.com/rmoriz/openra-dockerfile/blob/master/bin/start.sh
 Seems like an example server with RA-mod needs at least 500MB of memory, maybe even more.
 
 ## Copyright & License
+
+This is a fork of [https://github.com/rmoriz/openra-dockerfile rmoriz/openra-dockerfile]
 
 Copyright © 2014 [Roland Moriz](https://roland.io), see LICENSE.txt
