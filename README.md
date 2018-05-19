@@ -28,10 +28,10 @@ $ docker run -d --name='OpenRA' \
 
 | ENV  | EXAMPLE VALUE   | DESCRIPTION  | DEFAULT  |   |
 |---|---|---|---|---|
-| NAME  | Mudisle D2K Server  |  Server name  |   |   |
-| MOTD  | Welcome to Mudisle d2k Server. Have Fun!! | MOTD, on server join   |   |   |
+| NAME  | Mudisle D2K Server  |  Server name  | DEDICATED SERVER  |   |
+| MOTD  | Welcome to Mudisle d2k Server. Have Fun!! | MOTD, on server join   | Have Fun!!  |   |
 | EXTERNAL_PORT  | 1234  |  External port, used for server list registration  |  1234 |   |
-| ADVERTISE_ONLINE  | True  | Register with public  server list |  False |   |
+| ADVERTISE_ONLINE  | True  | Register with public  server list |  True |   |
 | MOD  | d2k  |  OpenRA Mod "Dune 2000"  | ra |   |
 | MAP  | 8dd8ad23ab49cf73cc2d52507ed684ab51e129c5 | Load initial map with id, see [Resource Center][1]  |  |   |
 | PASSWORD  | whatever | Password to connect |  |   |
@@ -45,6 +45,6 @@ Seems like an example server with RA-mod needs at least 500MB of memory, maybe e
 
 ## Copyright & License
 
-This is a fork of [https://github.com/rmoriz/openra-dockerfile rmoriz/openra-dockerfile]
+This is a fork of [rmoriz/openra-dockerfile](https://github.com/rmoriz/openra-dockerfile)
 
 Copyright © 2014 [Roland Moriz](https://roland.io), see LICENSE.txt
