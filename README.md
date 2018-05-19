@@ -2,24 +2,25 @@
 
 ## unRAID template
 
-The template for this docker can be found at [https://raw.githubusercontent.com/Mudislander/docker-templates/master/openra.xml Mudislander/docker-templates]
+The template for this docker can be found at [Mudislander/docker-templates][1]
+[1]: https://raw.githubusercontent.com/Mudislander/docker-templates/master/openra.xml
 
 ## Example unRAID command
 ```sh
 
 $ docker run -d --name='OpenRA' \
-                --net='bridge' \
-				 -e TZ="Europe/London" \
-				 -e HOST_OS="unRAID" \
-				 -e 'Mod'='d2k' \
-				 -e 'Name'='Mudisle D2K Server' \
-				 -e 'Ban'='' \
-				 -e 'MOTD'='Welcome to Mudisle d2k Server. Have Fun!!' \
-				 -e 'Password'='' \
-				 -e 'MAP'='8dd8ad23ab49cf73cc2d52507ed684ab51e129c5' \
-				 -e 'AdvertiseOnline'='True' \
-				 -e 'EnableSingleplayer'='True' \
-				 -p '1234:1234/tcp' 'mudislander/openra-docker-server'
+				--net='bridge' \
+				-e TZ="Europe/London" \
+				-e HOST_OS="unRAID" \
+				-e 'Mod'='d2k' \
+				-e 'Name'='Mudisle D2K Server' \
+				-e 'Ban'='' \
+				-e 'MOTD'='Welcome to Mudisle d2k Server. Have Fun!!' \
+				-e 'Password'='' \
+				-e 'MAP'='8dd8ad23ab49cf73cc2d52507ed684ab51e129c5' \
+				-e 'AdvertiseOnline'='True' \
+				-e 'EnableSingleplayer'='True' \
+				-p '1234:1234/tcp' 'mudislander/openra-docker-server'
 
 ```
 
