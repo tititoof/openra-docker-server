@@ -1,7 +1,8 @@
 FROM ubuntu:18.04
-MAINTAINER Roland Moriz <roland@moriz.de>
+# MAINTAINER Roland Moriz <roland@moriz.de>
+MAINTAINER Mudislander
 
-ENV TZ="/usr/share/zoneinfo/UTC"
+# ENV TZ="/usr/share/zoneinfo/UTC"
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections \
   && apt-get update \
